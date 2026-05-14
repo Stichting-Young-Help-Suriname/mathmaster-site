@@ -42,10 +42,10 @@ export default function Events() {
               style={{ width: 40, height: 40, objectFit: 'contain', display: 'block', borderRadius: '50%' }}
             />
             <p
-              className="text-xs font-bold tracking-widest uppercase"
+              className="text-xs font-bold tracking-wider uppercase"
               style={{ color: '#F4A522' }}
             >
-              Wiskids Suriname · In de klas en op het podium
+              Wiskids Suriname
             </p>
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">

@@ -73,7 +73,7 @@ export default function ComingSoon() {
         </motion.div>
 
         {/* Main block */}
-        <div className="grid lg:grid-cols-2 gap-14 items-start">
+        <div className="grid md:grid-cols-2 gap-14 items-start">
 
           {/* Left: heading + progress */}
           <motion.div

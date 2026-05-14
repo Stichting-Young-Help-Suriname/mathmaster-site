@@ -31,7 +31,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-32">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-24 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -93,10 +93,10 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="#app"
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl font-black text-base"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-black text-base"
               style={{ background: '#F4A522', color: '#070e17' }}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -108,7 +108,7 @@ export default function Hero() {
             </a>
             <a
               href="#wiskids"
-              className="inline-flex items-center gap-2.5 px-7 py-4 rounded-xl font-black text-base"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-black text-base"
               style={{
                 background: 'rgba(255,255,255,0.12)',
                 border: '1.5px solid rgba(255,255,255,0.2)',

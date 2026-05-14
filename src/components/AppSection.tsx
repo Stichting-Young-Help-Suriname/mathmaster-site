@@ -78,7 +78,7 @@ export default function AppSection() {
             </div>
 
             {/* Thumbnail row — proper 16:9 aspect */}
-            <div className="grid grid-cols-7 gap-1.5">
+            <div className="grid grid-cols-4 md:grid-cols-7 gap-1.5">
               {screens.map((s, i) => (
                 <button
                   key={s.src}

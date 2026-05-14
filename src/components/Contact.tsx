@@ -144,7 +144,7 @@ export default function Contact() {
             style={{ background: 'rgba(13,27,42,0.7)' }}
           />
 
-          <div className="relative z-10 px-10 py-14 text-center">
+          <div className="relative z-10 px-6 sm:px-10 py-10 sm:py-14 text-center">
             <span className="inline-block w-14 h-14 rounded-2xl overflow-hidden mb-5 mx-auto">
               <img
                 src="/assets/logo/mathmaster-icon.png"

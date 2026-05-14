@@ -33,10 +33,10 @@ export default function Footer() {
   return (
     <footer style={{ background: '#040b12', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
       {/* Main footer body */}
-      <div className="max-w-6xl mx-auto px-6 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
         {/* Brand column */}
-        <div className="lg:col-span-1">
+        <div className="col-span-2 sm:col-span-1 lg:col-span-1">
           <div className="flex items-center gap-2.5 mb-4">
             <div className="w-9 h-9 rounded-xl overflow-hidden shrink-0">
               <img
@@ -126,7 +126,7 @@ export default function Footer() {
         </div>
 
         {/* YHS column */}
-        <div>
+        <div className="col-span-2 sm:col-span-1 lg:col-span-1">
           <div
             className="text-xs font-bold tracking-widest uppercase mb-5"
             style={{ color: 'rgba(241,245,249,0.25)' }}
