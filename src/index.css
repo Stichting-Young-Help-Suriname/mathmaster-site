@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    background-color: #0d1b2a;
+    color: #f1f5f9;
+  }
+
+  #root {
+    width: 100%;
+    text-align: left;
+  }
+
+  ::selection {
+    background-color: #F4A522;
+    color: #0d1b2a;
+  }
+}
