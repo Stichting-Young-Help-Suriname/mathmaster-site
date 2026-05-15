@@ -77,22 +77,16 @@ export default function AppSection() {
               </span>
             </div>
 
-            {/* Thumbnail row — scrolls horizontally on mobile, 7-col grid on md+ */}
-            <div
-              className="flex md:grid md:grid-cols-7 gap-1.5 overflow-x-auto md:overflow-visible pb-1 md:pb-0 -mx-6 md:mx-0 px-6 md:px-0"
-              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
+            {/* Thumbnail row */}
+            <div className="grid grid-cols-4 sm:grid-cols-7 gap-1.5">
               {screens.map((s, i) => (
                 <button
                   key={s.src}
                   onClick={() => setActive(i)}
                   aria-label={s.label}
-                  className="relative overflow-hidden rounded-lg shrink-0 md:shrink"
+                  className="relative overflow-hidden rounded-lg"
                   style={{
                     aspectRatio: '16 / 9',
-                    width: '18vw',
-                    maxWidth: 100,
-                    minWidth: 72,
                     outline: i === active ? '2px solid #F4A522' : '2px solid transparent',
                     outlineOffset: '1px',
                     opacity: i === active ? 1 : 0.38,

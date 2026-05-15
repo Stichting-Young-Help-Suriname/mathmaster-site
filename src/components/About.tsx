@@ -104,10 +104,10 @@ export default function About() {
         </motion.div>
 
         {/* Two-column: pillars left, YHS card right */}
-        <div className="grid lg:grid-cols-5 gap-12 items-start">
+        <div className="grid md:grid-cols-5 gap-10 md:gap-12 items-start">
 
           {/* Pillars */}
-          <div className="lg:col-span-3 space-y-0">
+          <div className="md:col-span-3 space-y-0">
             {pillars.map((p, i) => (
               <motion.div
                 key={p.title}
@@ -156,7 +156,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="lg:col-span-2"
+            className="md:col-span-2"
           >
             <div
               className="rounded-2xl overflow-hidden"

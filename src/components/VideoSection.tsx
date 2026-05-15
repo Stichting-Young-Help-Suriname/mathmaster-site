@@ -37,7 +37,7 @@ const videos = [
 ]
 
 function thumb(id: string) {
-  return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
+  return `https://img.youtube.com/vi/${id}/hqdefault.jpg`
 }
 
 export default function VideoSection() {
