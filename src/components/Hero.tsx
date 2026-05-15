@@ -18,7 +18,7 @@ export default function Hero() {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(105deg, rgba(7,14,23,0.97) 0%, rgba(7,14,23,0.88) 45%, rgba(7,14,23,0.6) 100%)',
+              'linear-gradient(105deg, rgba(7,14,23,0.97) 0%, rgba(7,14,23,0.88) 45%, rgba(7,14,23,0.55) 100%)',
           }}
         />
         {/* Bottom fade to next section */}
@@ -101,10 +101,10 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 mb-10">
             <a
               href="#app"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-black text-base"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-black text-base"
               style={{ background: '#F4A522', color: '#070e17' }}
             >
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -116,18 +116,65 @@ export default function Hero() {
             </a>
             <a
               href="#wiskids"
-              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-black text-base"
+              className="inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-xl font-bold text-base"
               style={{
-                background: 'rgba(255,255,255,0.12)',
-                border: '1.5px solid rgba(255,255,255,0.2)',
+                background: 'rgba(255,255,255,0.1)',
+                border: '1.5px solid rgba(255,255,255,0.18)',
                 color: '#ffffff',
               }}
             >
               Bekijk Wiskids
             </a>
           </div>
+
+          {/* Stats row */}
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {[
+              { value: '12', label: 'scholen' },
+              { value: '400+', label: 'leerlingen' },
+              { value: 'Gratis', label: 'Android-app' },
+            ].map((s) => (
+              <div key={s.label} className="flex items-baseline gap-1.5">
+                <span
+                  className="font-black text-base"
+                  style={{ color: '#F4A522' }}
+                >
+                  {s.value}
+                </span>
+                <span
+                  className="text-xs font-semibold"
+                  style={{ color: 'rgba(255,255,255,0.4)' }}
+                >
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <span
+          className="text-xs font-semibold tracking-widest uppercase"
+          style={{ color: 'rgba(255,255,255,0.25)', letterSpacing: '0.12em' }}
+        >
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

@@ -12,6 +12,25 @@ const screens = [
   { src: '/assets/app/screen-topics2.jpeg', label: 'Overzicht', desc: 'Alle beschikbare lessen' },
 ]
 
+const features = [
+  {
+    title: 'Gamification met score & levens',
+    body: 'Elke les wordt een spel — met 3 levens, een scorebord en tijdslimieten die het uitdagend houden.',
+  },
+  {
+    title: '6 onderwerpen, VOJ-curriculum',
+    body: 'Breuken, Gemiddelden, Driehoeken, Hoeken, Negatieve getallen en Decimalen voor leerjaar 9 & 10.',
+  },
+  {
+    title: 'Meerdere speeltypen',
+    body: 'Van klassieke meerkeuze-quizzen tot visuele sorteeractiviteiten met cartoon-begeleiders.',
+  },
+  {
+    title: 'Volledig gratis',
+    body: 'Geen abonnement, geen advertenties. Download de APK direct via de knop hieronder.',
+  },
+]
+
 export default function AppSection() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.06 })
   const [active, setActive] = useState(0)
@@ -24,26 +43,46 @@ export default function AppSection() {
       style={{ background: '#070e17' }}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+
+        {/* Section heading — full width above the two-column grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-10 lg:mb-14"
+        >
+          <p
+            className="text-xs font-bold tracking-widest uppercase mb-4"
+            style={{ color: '#F4A522' }}
+          >
+            De App
+          </p>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+            <h2
+              className="font-black leading-tight"
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: '#f1f5f9', maxWidth: '20ch' }}
+            >
+              De wiskundige app voor Surinaamse leerlingen
+            </h2>
+            <p
+              className="text-sm sm:text-right sm:max-w-xs"
+              style={{ color: 'rgba(241,245,249,0.45)', lineHeight: 1.7, flexShrink: 0 }}
+            >
+              HYPE by YHS — gratis Android-app met interactieve quizzen,
+              sorteeractiviteiten en 6 VOJ-onderwerpen.
+            </p>
+          </div>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left: screenshot viewer */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <h2
-              className="font-black leading-tight mb-3"
-              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: '#f1f5f9' }}
-            >
-              De wiskundige app voor Surinaamse leerlingen
-            </h2>
-            <p className="text-sm mb-8" style={{ color: 'rgba(241,245,249,0.45)', lineHeight: 1.65 }}>
-              HYPE by YHS — gratis Android-app met interactieve quizzen,
-              sorteeractiviteiten en 6 onderwerpen op basis van het VOJ-curriculum.
-            </p>
-
-            {/* Screen frame — proper landscape 16:9 ratio */}
+            {/* Screen frame */}
             <div
               className="relative w-full overflow-hidden rounded-xl mb-3"
               style={{
@@ -108,69 +147,58 @@ export default function AppSection() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="lg:pt-14"
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
             {/* App identity */}
             <div
-              className="flex items-center gap-5 mb-8 pb-8"
+              className="flex items-center gap-4 mb-8 pb-7"
               style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
             >
               <div
                 className="shrink-0 rounded-2xl overflow-hidden"
-                style={{ width: 96, height: 96, boxShadow: '0 0 0 1px rgba(255,255,255,0.1), 0 8px 24px rgba(0,0,0,0.5)' }}
+                style={{
+                  width: 72,
+                  height: 72,
+                  boxShadow: '0 0 0 1px rgba(255,255,255,0.1), 0 8px 24px rgba(0,0,0,0.5)',
+                }}
               >
                 <img
                   src="/assets/logo/mathmaster-icon.png"
                   alt="Math Master icon"
-                  style={{ width: 96, height: 96, objectFit: 'contain', display: 'block' }}
+                  style={{ width: 72, height: 72, objectFit: 'contain', display: 'block' }}
                 />
               </div>
               <div>
-                <div className="font-black text-2xl" style={{ color: '#f1f5f9', letterSpacing: '-0.02em' }}>
+                <div
+                  className="font-black text-xl"
+                  style={{ color: '#f1f5f9', letterSpacing: '-0.02em' }}
+                >
                   Math Master
                 </div>
-                <div className="text-sm mt-1" style={{ color: 'rgba(241,245,249,0.35)' }}>
-                  HYPE by YHS &nbsp;·&nbsp; Versie 1.0 &nbsp;·&nbsp; Android
+                <div className="text-sm mt-0.5" style={{ color: 'rgba(241,245,249,0.35)' }}>
+                  HYPE by YHS &nbsp;·&nbsp; v1.0 &nbsp;·&nbsp; Android
                 </div>
               </div>
             </div>
 
-            {/* What's in the app */}
+            {/* Features */}
             <div className="space-y-0 mb-10">
-              {[
-                {
-                  title: 'Gamification met score & levens',
-                  body: 'Elke les wordt een spel — met 3 levens, een scorebord en tijdslimieten die het uitdagend houden.',
-                },
-                {
-                  title: '6 onderwerpen, VOJ-curriculum',
-                  body: 'Breuken, Gemiddelden, Driehoeken, Hoeken, Negatieve getallen en Decimalen voor leerjaar 9 & 10.',
-                },
-                {
-                  title: 'Meerdere speeltypen',
-                  body: "Van klassieke meerkeuze-quizzen tot visuele sorteeractiviteiten met cartoon-begeleiders.",
-                },
-                {
-                  title: 'Volledig gratis',
-                  body: 'Geen abonnement, geen advertenties. Download de APK direct via de knop hieronder.',
-                },
-              ].map((f, i) => (
+              {features.map((f, i) => (
                 <div
                   key={i}
                   className="flex gap-4 py-4"
                   style={{
-                    borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                    borderBottom: i < features.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
                   }}
                 >
                   <span
                     className="shrink-0 font-black leading-none select-none"
                     aria-hidden
                     style={{
-                      fontSize: '1.5rem',
+                      fontSize: '1.4rem',
                       color: 'rgba(244,165,34,0.25)',
                       letterSpacing: '-0.04em',
-                      marginTop: '0.05rem',
+                      marginTop: '0.1rem',
                     }}
                   >
                     {String(i + 1).padStart(2, '0')}
@@ -179,7 +207,10 @@ export default function AppSection() {
                     <div className="font-black text-sm mb-1" style={{ color: '#f1f5f9' }}>
                       {f.title}
                     </div>
-                    <div className="text-sm leading-relaxed" style={{ color: 'rgba(241,245,249,0.45)', lineHeight: 1.65 }}>
+                    <div
+                      className="text-sm leading-relaxed"
+                      style={{ color: 'rgba(241,245,249,0.45)', lineHeight: 1.65 }}
+                    >
                       {f.body}
                     </div>
                   </div>
