@@ -3,19 +3,16 @@ import { motion } from 'framer-motion'
 
 const pillars = [
   {
-    icon: <LightbulbIcon />,
     title: 'Inspire',
     description:
       "Via interactieve lessen en uitdagende spellen wekken we passie voor wiskunde in leerlingen die dachten dat wiskunde niet voor hen was.",
   },
   {
-    icon: <ShieldIcon />,
     title: 'Empower',
     description:
       'We bouwen kennis en zelfvertrouwen op — zodat elke leerling de tools heeft om te slagen, op school en ver daarna.',
   },
   {
-    icon: <TargetIcon />,
     title: 'Impact',
     description:
       "Via evenementen, apps en video's bereiken we honderden leerlingen in heel Suriname — samen met scholen, ouders en leerkrachten.",
@@ -29,7 +26,7 @@ export default function About() {
     <section
       id="over-ons"
       ref={ref}
-      className="py-24 px-6"
+      className="py-16 sm:py-24 px-6"
       style={{ background: '#0d1b2a' }}
     >
       <div className="max-w-6xl mx-auto">
@@ -107,26 +104,34 @@ export default function About() {
         </motion.div>
 
         {/* Two-column: pillars left, YHS card right */}
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
 
           {/* Pillars */}
-          <div className="space-y-0">
+          <div className="lg:col-span-3 space-y-0">
             {pillars.map((p, i) => (
               <motion.div
                 key={p.title}
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.1 + 0.15, duration: 0.5 }}
-                className="flex gap-5 py-7"
+                className="flex gap-6 py-7"
                 style={{
                   borderBottom: i < pillars.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
                 }}
               >
+                {/* Large editorial number */}
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
-                  style={{ background: 'rgba(34,211,238,0.1)', color: '#22d3ee' }}
+                  className="shrink-0 font-black leading-none select-none"
+                  aria-hidden
+                  style={{
+                    fontSize: '2.75rem',
+                    color: 'rgba(244,165,34,0.2)',
+                    letterSpacing: '-0.05em',
+                    marginTop: '-0.2rem',
+                    lineHeight: 1,
+                  }}
                 >
-                  {p.icon}
+                  {String(i + 1).padStart(2, '0')}
                 </div>
                 <div>
                   <h3
@@ -151,6 +156,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
+            className="lg:col-span-2"
           >
             <div
               className="rounded-2xl overflow-hidden"
@@ -238,31 +244,3 @@ export default function About() {
   )
 }
 
-/* Inline SVG icons — purposeful and clean */
-function LightbulbIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="9" y1="18" x2="15" y2="18"/>
-      <line x1="10" y1="22" x2="14" y2="22"/>
-      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
-    </svg>
-  )
-}
-
-function ShieldIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-    </svg>
-  )
-}
-
-function TargetIcon() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <circle cx="12" cy="12" r="6"/>
-      <circle cx="12" cy="12" r="2"/>
-    </svg>
-  )
-}

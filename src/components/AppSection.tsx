@@ -20,7 +20,7 @@ export default function AppSection() {
     <section
       id="app"
       ref={ref}
-      className="py-24 px-6"
+      className="py-16 sm:py-24 px-6"
       style={{ background: '#070e17' }}
     >
       <div className="max-w-6xl mx-auto">
@@ -77,16 +77,22 @@ export default function AppSection() {
               </span>
             </div>
 
-            {/* Thumbnail row — proper 16:9 aspect */}
-            <div className="grid grid-cols-4 md:grid-cols-7 gap-1.5">
+            {/* Thumbnail row — scrolls horizontally on mobile, 7-col grid on md+ */}
+            <div
+              className="flex md:grid md:grid-cols-7 gap-1.5 overflow-x-auto md:overflow-visible pb-1 md:pb-0 -mx-6 md:mx-0 px-6 md:px-0"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
               {screens.map((s, i) => (
                 <button
                   key={s.src}
                   onClick={() => setActive(i)}
                   aria-label={s.label}
-                  className="relative overflow-hidden rounded-lg"
+                  className="relative overflow-hidden rounded-lg shrink-0 md:shrink"
                   style={{
                     aspectRatio: '16 / 9',
+                    width: '18vw',
+                    maxWidth: 100,
+                    minWidth: 72,
                     outline: i === active ? '2px solid #F4A522' : '2px solid transparent',
                     outlineOffset: '1px',
                     opacity: i === active ? 1 : 0.38,
@@ -137,7 +143,7 @@ export default function AppSection() {
             </div>
 
             {/* What's in the app */}
-            <div className="space-y-5 mb-10">
+            <div className="space-y-0 mb-10">
               {[
                 {
                   title: 'Gamification met score & levens',
@@ -158,14 +164,30 @@ export default function AppSection() {
               ].map((f, i) => (
                 <div
                   key={i}
-                  className="pl-4"
-                  style={{ borderLeft: '2px solid rgba(244,165,34,0.3)' }}
+                  className="flex gap-4 py-4"
+                  style={{
+                    borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                  }}
                 >
-                  <div className="font-bold text-sm mb-1" style={{ color: '#f1f5f9' }}>
-                    {f.title}
-                  </div>
-                  <div className="text-sm leading-relaxed" style={{ color: 'rgba(241,245,249,0.45)', lineHeight: 1.65 }}>
-                    {f.body}
+                  <span
+                    className="shrink-0 font-black leading-none select-none"
+                    aria-hidden
+                    style={{
+                      fontSize: '1.5rem',
+                      color: 'rgba(244,165,34,0.25)',
+                      letterSpacing: '-0.04em',
+                      marginTop: '0.05rem',
+                    }}
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <div className="font-black text-sm mb-1" style={{ color: '#f1f5f9' }}>
+                      {f.title}
+                    </div>
+                    <div className="text-sm leading-relaxed" style={{ color: 'rgba(241,245,249,0.45)', lineHeight: 1.65 }}>
+                      {f.body}
+                    </div>
                   </div>
                 </div>
               ))}

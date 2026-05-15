@@ -47,7 +47,7 @@ export default function VideoSection() {
     <section
       id="videos"
       ref={ref}
-      className="py-24 px-6"
+      className="py-16 sm:py-24 px-6"
       style={{ background: '#0a1520' }}
     >
       <div className="max-w-6xl mx-auto">

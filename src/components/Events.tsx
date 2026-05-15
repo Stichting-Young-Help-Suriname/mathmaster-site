@@ -23,7 +23,7 @@ export default function Events() {
     <section
       id="wiskids"
       ref={ref}
-      className="py-24 px-6"
+      className="py-16 sm:py-24 px-6"
       style={{ background: '#0d1b2a' }}
     >
       <div className="max-w-6xl mx-auto">

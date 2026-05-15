@@ -35,7 +35,7 @@ export default function ComingSoon() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.08 })
 
   return (
-    <section ref={ref} className="relative py-24 px-6 overflow-hidden" style={{ background: '#070e17' }}>
+    <section ref={ref} className="relative py-16 sm:py-24 px-6 overflow-hidden" style={{ background: '#070e17' }}>
 
       {/* Giant "2.0" in the background */}
       <div
@@ -123,7 +123,7 @@ export default function ComingSoon() {
                 <span>Release</span>
               </div>
               <div
-                className="h-1 w-full rounded-full overflow-hidden"
+                className="h-2 w-full rounded-full overflow-hidden"
                 style={{ background: 'rgba(255,255,255,0.06)' }}
               >
                 <motion.div
@@ -137,23 +137,22 @@ export default function ComingSoon() {
             </div>
           </motion.div>
 
-          {/* Right: feature cards */}
-          <div className="space-y-4">
+          {/* Right: feature rows */}
+          <div className="space-y-0">
             {features.map((f, i) => (
               <motion.div
                 key={f.title}
                 initial={{ opacity: 0, x: 20 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.1 + 0.2, duration: 0.5 }}
-                className="flex gap-4 p-5 rounded-xl"
+                className="flex gap-5 py-6"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  borderBottom: i < features.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
                 }}
               >
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                  style={{ background: 'rgba(244,165,34,0.08)', color: '#F4A522' }}
+                  className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                  style={{ background: 'rgba(244,165,34,0.1)', color: '#F4A522' }}
                 >
                   {f.icon}
                 </div>

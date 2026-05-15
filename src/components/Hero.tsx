@@ -31,7 +31,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-24 md:py-32">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full py-20 md:py-32">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,7 @@ export default function Hero() {
           className="max-w-xl"
         >
           {/* YHS badge */}
-          <div className="flex items-center gap-2.5 mb-8">
+          <div className="flex items-center gap-2.5 mb-6">
             <img
               src="/assets/logo/yhs-logo.png"
               alt="Young Help Suriname"
@@ -53,6 +53,11 @@ export default function Hero() {
               Young Help Suriname
             </span>
           </div>
+
+          {/* Orange accent rule */}
+          <div
+            style={{ width: 36, height: 3, background: '#F4A522', borderRadius: 2, marginBottom: 28 }}
+          />
 
           {/* Headline */}
           <h1
@@ -70,6 +75,9 @@ export default function Hero() {
               style={{
                 color: '#F4A522',
                 fontStyle: 'italic',
+                display: 'inline-block',
+                transform: 'rotate(-1.5deg)',
+                transformOrigin: 'left bottom',
                 textShadow: '0 0 80px rgba(244,165,34,0.45)',
               }}
             >

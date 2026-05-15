@@ -44,7 +44,7 @@ export default function Contact() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.06 })
 
   return (
-    <section id="contact" ref={ref} className="py-24 px-6" style={{ background: '#0d1b2a' }}>
+    <section id="contact" ref={ref} className="py-16 sm:py-24 px-6" style={{ background: '#0d1b2a' }}>
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
@@ -77,24 +77,27 @@ export default function Contact() {
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.08, duration: 0.5 }}
-              className="group flex gap-4 p-6 rounded-2xl transition-all duration-200"
+              className="group relative flex gap-4 px-5 pb-5 pt-4 rounded-xl overflow-hidden transition-all duration-200"
               style={{
                 background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(255,255,255,0.07)',
                 textDecoration: 'none',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.06)'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.12)'
+                e.currentTarget.style.background = 'rgba(255,255,255,0.055)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)'
               }}
             >
-              {/* Platform icon with brand color */}
+              {/* Colored top stripe using the brand color */}
               <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                className="absolute top-0 left-0 right-0"
+                style={{ height: 3, background: s.bg, opacity: 0.85 }}
+              />
+
+              {/* Platform icon */}
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 mt-1"
                 style={{ background: s.bg }}
               >
                 {s.icon}
@@ -105,17 +108,17 @@ export default function Contact() {
                 <div className="text-xs font-semibold mb-0.5" style={{ color: 'rgba(241,245,249,0.35)' }}>
                   {s.platform}
                 </div>
-                <div className="font-black text-sm mb-2" style={{ color: '#f1f5f9' }}>
+                <div className="font-black text-sm mb-1.5" style={{ color: '#f1f5f9' }}>
                   {s.page}
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: 'rgba(241,245,249,0.4)', lineHeight: 1.6 }}>
+                <p className="text-xs leading-relaxed hidden sm:block" style={{ color: 'rgba(241,245,249,0.4)', lineHeight: 1.6 }}>
                   {s.description}
                 </p>
               </div>
 
               {/* Arrow */}
               <div className="shrink-0 self-center opacity-30 group-hover:opacity-70 transition-opacity">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f1f5f9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#f1f5f9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"/>
                   <polyline points="12 5 19 12 12 19"/>
                 </svg>
